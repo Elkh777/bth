@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Для тебя ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* падающие сердечки (медленные и прозрачные) */
+.heart {
+    position: fixed;
+    top: -10px;
+    color: rgba(255, 0, 0, 0.25);
+    animation: fall linear infinite;
+    font-size: 18px;
+    z-index: 0;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+/* контейнер */
+.container {
+    max-width: 750px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* видео */
+video {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* кнопка */
+button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4d6d, #ff1e4d);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* текст */
+.text {
+    display: none;
+    margin-top: 25px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: left;
+    line-height: 1.7;
+    animation: fadeIn 1s ease;
+}
+
+/* плавное появление */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* заголовок */
+.title {
+    text-align: center;
+    color: #ff2e63;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ВИДЕО -->
+    <video controls>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <!-- КНОПКА -->
+    <button onclick="showText()">нажми сюда 💌</button>
+
+    <!-- ТЕКСТ -->
+    <div class="text" id="loveText">
+
+        <div class="title">Зайчик мой, с днём рождения ❤️</div>
+
+        <p>Ты даже не представляешь, как сильно я тебя люблю. С каждым днём это чувство становится только больше и глубже. Я благодарна судьбе за то, что встретила тебя — правда, это одно из самых важных событий в моей жизни.</p>
+
+        <p>Каждый раз, когда я смотрю на тебя, я ловлю себя на мысли, как же мне повезло. Ты невероятный. Ты делаешь меня лучше, поддерживаешь, и рядом с тобой мне так спокойно и тепло, что я словно становлюсь маленькой девочкой, которую любят, берегут и о которой заботятся.</p>
+
+        <p>Я знаю, что со мной бывает непросто — я могу обижаться, переживать, и мне правда жаль за это. Но я очень стараюсь и буду стараться ещё больше, потому что ты для меня безумно важен.</p>
+
+        <p>Когда ты говоришь мне что-то тёплое и нежное, у меня внутри всё сжимается от чувств — иногда даже до слёз. Мне до сих пор трудно поверить, что у меня есть человек, которому я важна, который меня любит… и это ты.</p>
+
+        <p>Ты такой добрый, милый, красивый… И я никогда не устану говорить, какая у тебя потрясающая улыбка — я хочу видеть её как можно чаще.</p>
+
+        <p>Я всегда буду рядом с тобой — в радости, в трудные моменты, когда грустно или когда просто не знаешь, куда себя деть. Я поддержу тебя в любых начинаниях. И даже если иногда мне не удаётся дать тебе всё, что ты хочешь, знай — мне это важно, и я работаю над собой.</p>
+
+        <p>Твои сомнения и страхи — это временно. Я верю в тебя всей душой, потому что вижу, какой ты сильный и упорный. У меня нет ни малейшего сомнения, что ты справишься со всем.</p>
+
+        <p>С днём рождения тебя, мой самый важный человек. Я думаю о тебе постоянно, переживаю за тебя и радуюсь вместе с тобой. Спасибо, что ты есть в моей жизни и что ты рядом.</p>
+
+        <p><b>Я очень жду всего, что ещё ждёт нас впереди. И я очень надеюсь, что тебе понравится тот небольшой подарок, который я для тебя приготовила.</b></p>
+
+        <p>Моя любовь ❤️</p>
+
+    </div>
+
+</div>
+
+<script>
+function showText() {
+    document.getElementById("loveText").style.display = "block";
+}
+
+/* медленные сердечки */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 5 + 6) + "s"; // медленнее
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 12000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
