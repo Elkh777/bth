@@ -96,9 +96,17 @@ button:hover {
 <div class="container">
 
     <!-- ВИДЕО -->
-    <video autoplay muted loop playsinline>
+   <video id="myVideo" autoplay muted playsinline>
     <source src="video.mp4" type="video/mp4">
-    </video>
+</video>
+
+<script>
+    var video = document.getElementById('myVideo');
+    video.addEventListener('ended', function() {
+        video.currentTime = 0;  // вернуться в начало
+        video.play();           // начать снова
+    });
+</script>
 
     <!-- КНОПКА -->
     <button onclick="showText()">нажми сюда 💌</button>
